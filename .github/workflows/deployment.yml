@@ -6,10 +6,6 @@ on:
         description: 'Labels of issues and PRs that should be excluded from the changelog.'
         default: 'duplicate,question,invalid,wontfix,skip-changelog'
         type: string
-      future-release:
-        description: 'The version of the future release instead of "unreleased" section'
-        default: ''
-        type: string
       release-branch:
         description: 'The branch to limit the PRs to'
         default: ''
