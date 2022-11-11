@@ -8,7 +8,7 @@ on:
         type: string
       release-branch:
         description: 'The branch to limit the PRs to'
-        default: ''
+        default: 'release'
         type: string
       main-branch:
         description: 'The main branch that will be updated after deployment'
