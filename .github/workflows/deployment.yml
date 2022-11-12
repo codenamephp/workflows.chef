@@ -70,7 +70,6 @@ jobs:
 
   update_changelog_in_main:
     uses: codenamephp/workflows.common/.github/workflows/update-changelog.yml@production
-    needs: calculate_next_version
     with:
       ref: ${{inputs.main-branch}}
       exclude_labels: ${{inputs.exclude-labels}}
