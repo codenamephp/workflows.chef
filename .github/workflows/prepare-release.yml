@@ -10,10 +10,6 @@ on:
         description: 'Labels of issues and PRs that should be excluded from the changelog.'
         default: 'duplicate,question,invalid,wontfix,skip-changelog'
         type: string
-      future-release:
-        description: 'The version of the future release instead of "unreleased" section'
-        default: ''
-        type: string
       release-branch:
         description: 'The branch to limit the PRs to'
         default: ''
@@ -29,13 +25,13 @@ jobs:
       version: ${{ needs.calculate_next_version.outputs.version }}
 
   update_changelog:
-    uses: codenamephp/workflows.common/.github/workflows/update-changelog.yml@main
+    uses: codenamephp/workflows.common/.github/workflows/update-changelog.yml@production
     needs: calculate_next_version
     with:
       ref: ${{inputs.ref}}
-      exclude-labels: ${{inputs.exclude-labels}}
+      exclude-labels: ${{ inputs.exclude-labels }}
       future-release: ${{ inputs.future-release }}
-      release-branch: ${{inputs.release-branch}}
+      release-branch: ${{ needs.calculate_next_version.outputs.version }}
 
   bump_cookbook_version:
     name: Bump cookbook version and check upload
@@ -54,7 +50,7 @@ jobs:
         run: 'echo "$CHEF_KEY" > codenamephp.pem'
         shell: bash
         env:
-          CHEF_KEY: ${{secrets.CHEF_KEY}}
+          CHEF_KEY: ${{ secrets.CHEF_KEY }}
 
       - name: Install spork
         run: chef exec gem install knife-spork
