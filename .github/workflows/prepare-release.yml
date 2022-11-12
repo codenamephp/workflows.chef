@@ -33,9 +33,9 @@ jobs:
     needs: calculate_next_version
     with:
       ref: ${{inputs.ref}}
-      exclude_labels: ${{inputs.exclude-labels}}
-      future_release: ${{ inputs.future-release }}
-      release_branch: ${{inputs.release-branch}}
+      exclude-labels: ${{inputs.exclude-labels}}
+      future-release: ${{ inputs.future-release }}
+      release-branch: ${{inputs.release-branch}}
 
   bump_cookbook_version:
     name: Bump cookbook version and check upload
