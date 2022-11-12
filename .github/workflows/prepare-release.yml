@@ -30,8 +30,8 @@ jobs:
     with:
       ref: ${{inputs.ref}}
       exclude-labels: ${{ inputs.exclude-labels }}
-      future-release: ${{ inputs.future-release }}
-      release-branch: ${{ needs.calculate_next_version.outputs.version }}
+      future-release: ${{ needs.calculate_next_version.outputs.version }}
+      release-branch: ${{ inputs.release-branch }}
 
   bump_cookbook_version:
     name: Bump cookbook version and check upload
