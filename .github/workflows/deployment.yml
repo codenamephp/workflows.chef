@@ -72,8 +72,8 @@ jobs:
     uses: codenamephp/workflows.common/.github/workflows/update-changelog.yml@production
     with:
       ref: ${{inputs.main-branch}}
-      exclude_labels: ${{inputs.exclude-labels}}
-      release_branch: ${{inputs.release-branch}}
+      exclude-labels: ${{inputs.exclude-labels}}
+      release-branch: ${{inputs.release-branch}}
 
   update_default_branch:
     name: Update default branch after published release
